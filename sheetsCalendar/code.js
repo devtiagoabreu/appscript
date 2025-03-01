@@ -43,7 +43,7 @@ function criarEventos() {
       evento.setColor(cor);
 
       // Atualiza coluna sincronizado
-      panilha.getRange(i + 1, 9).setValue("Sim");
+      planilha.getRange(i + 1, 9).setValue("Sim");
 
     }    
         
