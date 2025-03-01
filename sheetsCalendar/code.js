@@ -6,7 +6,7 @@ function criarEventos() {
 
   var agenda = CalendarApp.getDefaultCalendar();
 
-  for (var i = 1; i < valores.lenght; i++) {
+  for (var i = 1; i < valores.length; i++) {
     var linha = valores[i];
     var sincronizado = linha[8];
 
