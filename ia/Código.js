@@ -38,5 +38,5 @@ function chamarAPI() {
 
   return jsonResponse;
 
-  //Logger.log('prompt:' + prompt)
+  Logger.log(jsonResponse)
 }
