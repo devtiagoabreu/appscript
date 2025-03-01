@@ -37,7 +37,9 @@ function chamarAPI() {
   var response = UrlFetchApp.fetch(url, options);
   var jsonResponse= response.getContentText();
 
-  return jsonResponse;
+  var respostaModelo = jsonResponse.choices[0].message.content;
 
-  Logger.log(jsonResponse)
+  Logger.log(respostaModelo)
+
+  return jsonResponse;
 }
