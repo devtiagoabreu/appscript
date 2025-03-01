@@ -1,14 +1,28 @@
 function chat() {
-  var planilha = SpreadsheetApp.getActiveSpreadsheet();
-  var aba = planilha.getActiveSheet();
-  var prompt = aba.getRange('H2').getValue();
+  var prompt = lerPrompt();
+  var resposta = chamarAPI(prompt)
+  escreverResposta(resposta);
   
   //Logger.log('prompt:' + prompt)
 }
 
-function chamarAPI() {
+function lerPrompt() {
+  var planilha = SpreadsheetApp.getActiveSpreadsheet();
+  var aba = planilha.getActiveSheet();
+
+  return aba.getRange('H2').getValue();
+}
+
+function escreverResposta(resposta) {
+  var planilha = SpreadsheetApp.getActiveSpreadsheet();
+  var aba = planilha.getActiveSheet();
+
+  aba.getRange('H3').setValue(resposta);
+}
+
+function chamarAPI(prompt) {
   var url = 'https://api.openai.com/v1/chat/completions';
-  var prompt = 'Como calcular o valor médio de um estoque contábil';
+  //var prompt = 'Como calcular o valor médio de um estoque contábil';
   var apiKey = PropertiesService.getScriptProperties().getProperty('OPENAI_API_KEY');
 
   var data = {
